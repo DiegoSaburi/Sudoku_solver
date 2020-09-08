@@ -9,4 +9,6 @@ def print_tabela (tabela):
                 print(" | ", end = "")
 
                 if (coluna == 8):
+                    print(table[linha][coluna])
+                else:
                     print(table[linha][coluna] + "", end = "")
