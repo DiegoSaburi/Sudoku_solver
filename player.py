@@ -59,7 +59,5 @@ class Player (Chrome):
         irá selecionar o número na celula
         '''
         celula.click()
-        time.sleep(0.2)
         self.find_element_by_xpath(f'//td[@data-value = "{solucao}"]').click()
-        time.sleep(0.2)
 

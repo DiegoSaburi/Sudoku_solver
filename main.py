@@ -1,5 +1,6 @@
 from utils import *
 from player import Player
+import time
 
 driver = Player('chromedriver.exe')
 
@@ -18,4 +19,3 @@ celulas_selecionaveis = driver.get_celulas_selecionaveis()
 for celula in celulas_selecionaveis:
     linha,coluna = driver.get_celula_coords(celula)
     driver.send_solucao(celula,tabela[linha][coluna])
-
