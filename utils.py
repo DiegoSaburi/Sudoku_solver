@@ -9,16 +9,16 @@ def print_tabela (tabela):
                 print(" | ", end = "")
 
                 if (coluna == 8):
-                    print(table[linha][coluna])
+                    print(tabela[linha][coluna])
                 else:
-                    print(table[linha][coluna] + "", end = "")
+                    print(tabela[linha][coluna] + "", end = "")
 
 def encontrar_vazios (tabela):
     ''' encontrará as células a serem preenchidas '''
 
     for linha in range(len(tabela)):
         for coluna in range(len(tabela[0])):
-            if (tabela[linha][coluna] == 0):
+            if (tabela[linha][coluna] == ''):
                 return (linha,coluna)
     return None
 def check_solucao(tabela, solucao, posicao : set ):
@@ -65,6 +65,6 @@ def solucionar(tabela):
             if (solucionar(tabela)):
                 return True
             
-            tabela[linha][coluna] = 0
+            tabela[linha][coluna] = ''
         
     return False

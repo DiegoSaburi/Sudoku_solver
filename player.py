@@ -1,0 +1,31 @@
+from selenium.webdriver import Chrome
+import time
+
+class Player (Chrome):
+    def __init__(self, executable_path, port=0, options=None, service_args=None, desired_capabilities=None, service_log_path=None, chrome_options=None, keep_alive=True):
+        super().__init__(executable_path=executable_path, port=port, options=options, service_args=service_args, desired_capabilities=desired_capabilities, service_log_path=service_log_path, chrome_options=chrome_options, keep_alive=keep_alive)
+
+    def inicializar(self):
+        '''
+        carrega o site
+        '''
+        self.get('https://www.geniol.com.br/logica/sudoku/')
+        time.sleep(0.5)
+    
+    def get_tabela(self):
+        '''
+        Vai pegar a tabela do site e colocar em uma lista de listas
+
+        retorna tabela
+        '''
+        linha = []
+        tabela = []
+        for i in range(0,81):
+            celula = self.find_element_by_id(f'c{i}').text
+            linha.append(celula)
+            if((i + 1) % 9 == 0):
+                tabela.append(linha)
+                aux = 0
+                linha = []
+        
+        return tabela
