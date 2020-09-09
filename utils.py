@@ -12,3 +12,11 @@ def print_tabela (tabela):
                     print(table[linha][coluna])
                 else:
                     print(table[linha][coluna] + "", end = "")
+
+def encontrar_vazios (tabela):
+    ''' encontrará as células a serem preenchidas '''
+
+    for linha in range(len(tabela)):
+        for coluna in range(len(tabela[0])):
+            if (tabela[linha][coluna] == 0):
+                return (linha,coluna)
