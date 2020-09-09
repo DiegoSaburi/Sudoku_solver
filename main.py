@@ -5,4 +5,7 @@ driver = Player('chromedriver.exe')
 
 driver.inicializar()
 
-driver.get_tabela()
+celulas = driver.get_celulas_selecionaveis()
+coords = driver.get_celula_coords(celulas[0])
+
+print(coords)

@@ -29,3 +29,23 @@ class Player (Chrome):
                 linha = []
         
         return tabela
+
+    def get_celulas_selecionaveis(self):
+        '''
+        Encontrará todas as células selecionáveis na tabela
+        retorna lista de webelements
+        '''
+        return self.find_elements_by_xpath('//td[@class = "cell user"]')
+    
+    def get_celula_coords(self,celula):
+        '''
+        Encontrará as coordenadas (linha,coluna) da célula
+        retorna tupla de linha e coluna
+        '''
+        celula_id = celula.get_attribute('id')
+        filtro = filter(str.isdigit, celula_id)
+        coords = int("".join(filtro))
+        linha = coords//9
+        coluna = coords%9
+        return (linha, coluna)
+        
