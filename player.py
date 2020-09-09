@@ -10,6 +10,7 @@ class Player (Chrome):
         carrega o site
         '''
         self.get('https://www.geniol.com.br/logica/sudoku/')
+        self.maximize_window()
         time.sleep(0.5)
     
     def get_tabela(self):
@@ -48,4 +49,13 @@ class Player (Chrome):
         linha = coords//9
         coluna = coords%9
         return (linha, coluna)
-        
+
+    def send_solucao(self,celula,solucao):
+        '''
+        irá selecionar o número na celula
+        '''
+        celula.click()
+        time.sleep(0.2)
+        self.find_element_by_xpath(f'//td[@data-value = "{solucao}"]').click()
+        time.sleep(0.2)
+
