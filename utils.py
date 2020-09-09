@@ -20,6 +20,7 @@ def encontrar_vazios (tabela):
         for coluna in range(len(tabela[0])):
             if (tabela[linha][coluna] == 0):
                 return (linha,coluna)
+    return None
 def check_solucao(tabela, solucao, posicao : set ):
     '''
     checará se o numero "solucao" na posição "posicao"
@@ -47,3 +48,23 @@ def check_solucao(tabela, solucao, posicao : set ):
                 return False
     
     return True
+
+def solucionar(tabela):
+    '''
+    Tentará achar a solução 
+    '''
+    find = encontrar_vazios(tabela)
+    if (find == None):
+        return True
+    else:
+        linha, coluna = find
+    
+    for numero in range(1,10):
+        if (check_solucao(tabela,numero, (linha,coluna))):
+            tabela[linha][coluna] = numero
+            if (solucionar(tabela)):
+                return True
+            
+            tabela[linha][coluna] = 0
+        
+    return False
