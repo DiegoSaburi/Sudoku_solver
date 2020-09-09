@@ -23,6 +23,10 @@ class Player (Chrome):
         tabela = []
         for i in range(0,81):
             celula = self.find_element_by_id(f'c{i}').text
+            if(celula == ''):
+                celula = 0
+            else:
+                celula = int(celula)
             linha.append(celula)
             if((i + 1) % 9 == 0):
                 tabela.append(linha)
