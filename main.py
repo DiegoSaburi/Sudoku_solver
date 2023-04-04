@@ -1,8 +1,10 @@
 from utils import *
 from player import Player
-import time
+from selenium.webdriver.chrome.options import Options
 
-driver = Player('chromedriver.exe')
+chrome_options = Options()
+chrome_options.add_experimental_option("detach", True)
+driver = Player('chromedriver.exe', chrome_options=chrome_options)
 
 driver.inicializar()
 
